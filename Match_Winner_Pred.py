@@ -116,7 +116,7 @@ def predict_match_outcome(team, opponent, venue):
 
     # Prepare input data for prediction
     input_data = np.array([[avg_xG, avg_xGA, avg_Poss, avg_Sh, avg_SoT, avg_Dist, avg_FK, avg_PK, encoded_venue, encoded_team, encoded_opponent]])
-    input_data = scaler.transform(input_data)  # Scale the input data
+    input_data = scaler.transform(input_data) 
     
     # Get the prediction probabilities
     probabilities = best_model.predict_proba(input_data)[0]
@@ -128,7 +128,6 @@ def predict_match_outcome(team, opponent, venue):
         opponent: f"{probabilities[0]:.5f}"
     }
 
-# Example usage
 team = input("Enter the name of the Team: ")
 opponent = input("Enter the name of the Opponent: ")
 venue = input("Enter the venue (e.g., 'Home' or 'Away'): ")
